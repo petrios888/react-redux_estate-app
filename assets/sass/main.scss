@@ -3,8 +3,12 @@
 @import "variables";
 
 
-body {
+*,
+ body,
+ html {
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
   // background: purple;
 }
 @import "listings";
+@import "content-area";
