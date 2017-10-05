@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import ReactDOM from 'react-dom'
 
-class App extends Component {
+export default class Header extends Component {
   constructor () {
     super()
     this.state = {
@@ -12,7 +12,3 @@ class App extends Component {
     return (<div> Real Estate </div>)
   }
 }
-
-const app = document.getElementById('app')
-
-ReactDOM.render(<App />, app)

@@ -1,5 +1,7 @@
 import React, { Component} from 'react'
 import ReactDOM from 'react-dom'
+import Header from './Header'
+
 
 class App extends Component {
   constructor () {
@@ -9,7 +11,18 @@ class App extends Component {
     }
   }
   render () {
-    return (<div> Real Estate </div>)
+    return (
+      <header>
+      <div> Logo </div>
+      <nav>
+        <a href="#">create ads </a>
+        <a href="#">about us </a>
+        <a href="#">log in  </a>
+        <a href="#" className= "register-btn"></a>
+      </nav>
+      <Header />
+
+      </header>)
   }
 }
 
