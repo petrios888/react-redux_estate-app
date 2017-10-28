@@ -1,9 +1,11 @@
 #filter {
   background: $grey;
   width: 30%;
+  max-width: 300px;
 
   .inside{
     padding: 20px;
+    max-width: 300px;
   }
   h4{
     font-size: 0.9rem;
@@ -38,5 +40,22 @@
      display: inline-block;
      margin-right: 2.5%;
    }
+   &.extras {
+     label {
+       display: block;
+       width: 100%;
+       padding: 10px 0;
+       input[type="checkbox"]{
+         float: right;
+
+       }
+     }
+   }
  }
+
+}
+
+
+#listings{
+  
 }
