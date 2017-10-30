@@ -9,13 +9,13 @@ export default class Listings extends Component {
     }
   }
   render () {
-    return (<section className="listings">
+    return (<section id="listings">
     <section className="search-area">
     <input type="text" name="search"/>
     </section>
 
-    <section className="sortby">
-    <div>
+    <section className="sortby-area">
+    <div className="results">
       390 results found
     </div>
     <div className="sort-options">
@@ -37,13 +37,12 @@ export default class Listings extends Component {
           <div className="details">
             <div className="user-img"></div>
             <div className="user-details">
-              <span className="user-name">Paul of Tarsus</span>
+              <span className="user-name">Apostle Paul</span>
               <span className="post-date">10/05/2017</span>
             </div>
               <div className="listing-details">
                 <div className="floor-space">
-                <i class="fa fa-square-o"
-                aria-hidden="true"></i>
+                <i className="fa fa-square-o" aria-hidden="true"></i>
                 <span>1000 ft&sup2;</span>
 
                 </div>

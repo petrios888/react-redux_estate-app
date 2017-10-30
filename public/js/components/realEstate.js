@@ -365,7 +365,7 @@ var Listings = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'section',
-        { className: 'listings' },
+        { id: 'listings' },
         _react2.default.createElement(
           'section',
           { className: 'search-area' },
@@ -373,10 +373,10 @@ var Listings = function (_Component) {
         ),
         _react2.default.createElement(
           'section',
-          { className: 'sortby' },
+          { className: 'sortby-area' },
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'results' },
             '390 results found'
           ),
           _react2.default.createElement(
@@ -428,7 +428,7 @@ var Listings = function (_Component) {
                   _react2.default.createElement(
                     'span',
                     { className: 'user-name' },
-                    'Paul of Tarsus'
+                    'Apostle Paul'
                   ),
                   _react2.default.createElement(
                     'span',
@@ -442,8 +442,7 @@ var Listings = function (_Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'floor-space' },
-                    _react2.default.createElement('i', { 'class': 'fa fa-square-o',
-                      'aria-hidden': 'true' }),
+                    _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
                     _react2.default.createElement(
                       'span',
                       null,
