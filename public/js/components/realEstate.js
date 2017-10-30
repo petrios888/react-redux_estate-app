@@ -1,6 +1,81 @@
 webpackJsonp([0],{
 
-/***/ 101:
+/***/ 100:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var listingsData = [{
+  addres: '20-34 grand ave',
+  city: 'Boston',
+  state: 'MA',
+  rooms: '3',
+  price: 2220000,
+  floorSpace: 2000,
+  extras: ['elevator', 'pool'],
+  homeType: 'Apartment',
+  image: 'http://electrohome.info/wp-content/uploads/2015/10/and-kitchens-designed-for-entertaining-complement-nice-apartment-with-nice-apartment-building-interior-beautiful.jpg'
+}, {
+  addres: '20-34 grand ave',
+  city: 'Somerville',
+  state: 'MA',
+  rooms: '3',
+  price: 8880000,
+  floorSpace: 2000,
+  extras: ['elevator', 'gym'],
+  homeType: 'Apartment',
+  image: 'http://escobares.com/wp-content/uploads/2017/03/Nice-Decorated-Apartments-For-nifty-Best-Interior-Decorating-Software-Home-Interior-Design-Style.jpg'
+}, {
+  addres: '20-34 grand ave',
+  city: 'Medford',
+  state: 'ML',
+  rooms: '3',
+  price: 2260000,
+  floorSpace: 2000,
+  extras: ['elevator', 'gym'],
+  homeType: 'Apartment',
+  image: 'http://www.loftbelleepoque.se/wp-content/uploads/2012/10/4-slider.jpg'
+}, {
+  addres: '20-34 grand ave',
+  city: 'Boston',
+  state: 'FL',
+  rooms: '3',
+  price: 2720000,
+  floorSpace: 2000,
+  extras: ['elevator', 'gym'],
+  homeType: 'Apartment',
+  image: 'http://www.nmsapartments.com/wp-content/uploads/2013/06/NMS_Beloit_n1.jpg'
+}, {
+  addres: '20-34 grand ave',
+  city: 'California',
+  state: 'CA',
+  rooms: '3',
+  price: 2520000,
+  floorSpace: 2000,
+  extras: ['elevator', 'gym'],
+  homeType: 'Apartment',
+  image: 'http://electrohome.info/wp-content/uploads/2015/10/and-kitchens-designed-for-entertaining-complement-nice-apartment-with-nice-apartment-building-interior-beautiful.jpg'
+}, {
+  addres: '20-34 grand ave',
+  city: 'Seattle',
+  state: 'WA',
+  rooms: '3',
+  price: 3220000,
+  floorSpace: 2000,
+  extras: ['elevator', 'gym'],
+  homeType: 'Apartment',
+  image: 'http://cdn.home-designing.com/wp-content/uploads/2012/12/luxury-modern-apartment.jpg'
+}];
+
+exports.default = listingsData;
+
+/***/ }),
+
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28,6 +103,10 @@ var _Listings = __webpack_require__(99);
 
 var _Listings2 = _interopRequireDefault(_Listings);
 
+var _listingsData = __webpack_require__(100);
+
+var _listingsData2 = _interopRequireDefault(_listingsData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45,7 +124,8 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      name: 'Cephas'
+      name: 'Cephas',
+      listingsData: _listingsData2.default
     };
     return _this;
   }
@@ -53,6 +133,7 @@ var App = function (_Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
+      console.log(this.state);
       return _react2.default.createElement(
         'div',
         null,
@@ -61,7 +142,7 @@ var App = function (_Component) {
           'section',
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, null),
-          _react2.default.createElement(_Listings2.default, null)
+          _react2.default.createElement(_Listings2.default, { listingsData: this.state.listingsData })
         )
       );
     }
@@ -357,10 +438,115 @@ var Listings = function (_Component) {
     _this.state = {
       name: 'Cephas'
     };
+    _this.loopListings = _this.loopListings.bind(_this);
     return _this;
   }
 
   _createClass(Listings, [{
+    key: 'loopListings',
+    value: function loopListings() {
+      var listingsData = this.props.listingsData;
+
+
+      return listingsData.map(function (listings, index) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'col-md-3', key: index },
+          _react2.default.createElement(
+            'div',
+            { className: 'listings' },
+            _react2.default.createElement(
+              'div',
+              { className: 'listings-img', style: { background: 'url("' + listings.image + '") no-repeat\n                center center' } },
+              _react2.default.createElement(
+                'span',
+                { className: 'address' },
+                listings.address
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'details' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-3' },
+                  _react2.default.createElement('div', { className: 'user-img' })
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-9' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'user-details' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'user-name' },
+                      'Apostle Pau'
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'post-date' },
+                      ' "Now"'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listings-details' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'floor-space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '1000 ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        ' ',
+                        listings.bedrooms,
+                        ' bedrooms '
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'view-btn' },
+                    'View Listings'
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'bottom-info' },
+              _react2.default.createElement(
+                'span',
+                { className: 'price' },
+                '$',
+                listings.price
+              ),
+              _react2.default.createElement(
+                'span',
+                { classname: 'location' },
+                _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                ' ',
+                listings.city,
+                ', ',
+                listings.state,
+                ' '
+              )
+            )
+          )
+        );
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -407,358 +593,7 @@ var Listings = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'listings-results' },
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listings' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listings-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'The New Jerusalem'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement('div', { className: 'user-img' })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Apostle Paul'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        ' "Now"'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listings-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '1000 ft\xB2'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          ' 3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'view-btn' },
-                      'View Listings'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'price' },
-                  '$1000 / month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { classname: 'location' },
-                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
-                  ' Ridgewood, NY '
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listings' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listings-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'The New Jerusalem'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement('div', { className: 'user-img' })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Apostle Paul'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        ' "Now"'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listings-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '1000 ft\xB2'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          ' 3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'view-btn' },
-                      'View Listings'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'price' },
-                  '$1000 / month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { classname: 'location' },
-                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
-                  ' Ridgewood, NY '
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listings' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listings-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'The New Jerusalem'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement('div', { className: 'user-img' })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Apostle Paul'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        ' "Now"'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listings-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '1000 ft\xB2'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          ' 3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'view-btn' },
-                      'View Listings'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'price' },
-                  '$1000 / month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { classname: 'location' },
-                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
-                  ' Ridgewood, NY '
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-md-3' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listings' },
-              _react2.default.createElement(
-                'div',
-                { className: 'listings-img' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'address' },
-                  'The New Jerusalem'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'details' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-3' },
-                    _react2.default.createElement('div', { className: 'user-img' })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-9' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'user-details' },
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'user-name' },
-                        'Apostle Paul'
-                      ),
-                      _react2.default.createElement(
-                        'span',
-                        { className: 'post-date' },
-                        ' "Now"'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'listings-details' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'floor-space' },
-                        _react2.default.createElement('i', { className: 'fa fa-square-o', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          '1000 ft\xB2'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'bedrooms' },
-                        _react2.default.createElement('i', { className: 'fa fa-bed', 'aria-hidden': 'true' }),
-                        _react2.default.createElement(
-                          'span',
-                          null,
-                          ' 3 bedrooms '
-                        )
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'view-btn' },
-                      'View Listings'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'bottom-info' },
-                _react2.default.createElement(
-                  'span',
-                  { className: 'price' },
-                  '$1000 / month'
-                ),
-                _react2.default.createElement(
-                  'span',
-                  { classname: 'location' },
-                  _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
-                  ' Ridgewood, NY '
-                )
-              )
-            )
-          )
+          this.loopListings()
         ),
         _react2.default.createElement(
           'section',
@@ -814,4 +649,4 @@ exports.default = Listings;
 
 /***/ })
 
-},[101]);
+},[102]);
