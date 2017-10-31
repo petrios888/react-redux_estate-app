@@ -31,7 +31,7 @@ export default class Filter extends Component {
         <option value="Rooms"> Rooms </option>
 
       </select>
-      <select name="bedrooms" className="filters bedrooms"onChange={this.props.change}>
+      <select name="bedrooms" className="filters bedrooms" onChange={this.props.change}>
         <option value="0"> 0+ BR </option>
         <option value="1"> 1+ BR </option>
         <option value="2"> 2+ BR </option>

@@ -170,7 +170,7 @@ var App = function (_Component) {
       listingsData: _listingsData2.default,
       city: 'All',
       homeType: '0',
-      bedrooms: 1,
+      bedrooms: '0',
       min_price: 0,
       max_price: 1000,
       min_floor_space: 0,
@@ -205,7 +205,7 @@ var App = function (_Component) {
       var _this3 = this;
 
       var newData = this.state.listingsData.filter(function (item) {
-        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.floorSpace >= _this3.state.min_floor_space && item.floorSpace >= _this3.state.max_floor_space;
+        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.floorSpace >= _this3.state.min_floor_space && item.floorSpace >= _this3.state.max_floor_space && item.rooms >= _this3.state.bedrooms;
       });
       if (this.state.city != 'All') {
         newData = newData.filter(function (item) {
