@@ -11,17 +11,49 @@ class App extends Component {
     super()
     this.state = {
       name: 'Cephas',
-      listingsData
+      listingsData,
+      min_price: 0,
+      max_price: 1000,
+      min_floor_space: 0,
+      max_floor_space:5000,
+      elavator: false,
+      finished_basement: false,
+      swimming_pool: false,
+      gym: false,
+      filteredData: listingsData
     }
+    this.change=this.change.bind(this)
+    this.filteredData = this.filteredData.bind(this)
+  }
+  change(event){
+    var name =  event.target.name
+    var value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value
+
+    this.setState({
+      [name]:value
+    }, () => {
+      console.log(this.state)
+      this.filteredData()
+    })
+  }
+
+  filteredData(){
+    var newData = this.state.listingsData.filter((item) => {
+      return item.price >= this.state.min_price && item.price <= this.state.max_price
+      && item.floorSpace >= this.state.min_floor_space && item.floorSpace >= this.state.max_floor_space
+    })
+    this.setState({
+      filteredData: newData
+    })
   }
   render () {
-    console.log(this.state)
+
     return (
       <div>
       <Header />
       <section id="content-area">
-      <Filter />
-      <Listings listingsData={this.state.listingsData}/>
+      <Filter change={this.change} globalState={this.state} />
+      <Listings listingsData={this.state.filteredData}/>
 
       </section>
       </div>
