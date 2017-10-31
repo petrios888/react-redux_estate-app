@@ -12,10 +12,13 @@ class App extends Component {
     this.state = {
       name: 'Cephas',
       listingsData,
+      city: 'All',
+      homeType: '0',
+      bedrooms: 1,
       min_price: 0,
       max_price: 1000,
       min_floor_space: 0,
-      max_floor_space:5000,
+      max_floor_space: 0,
       elavator: false,
       finished_basement: false,
       swimming_pool: false,
@@ -42,6 +45,19 @@ class App extends Component {
       return item.price >= this.state.min_price && item.price <= this.state.max_price
       && item.floorSpace >= this.state.min_floor_space && item.floorSpace >= this.state.max_floor_space
     })
+    if(this.state.city != 'All'){
+      newData = newData.filter((item) =>{
+        return item.city == this.state.city
+      })
+    }
+    if(this.state.homeType != 'All'){
+      newData = newData.filter((item) =>{
+        return item.homeType == this.state.homeType
+      })
+    }
+
+
+
     this.setState({
       filteredData: newData
     })

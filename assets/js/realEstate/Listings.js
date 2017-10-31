@@ -29,7 +29,7 @@ export default class Listings extends Component {
 
                   <div className="col-md-9">
                   <div className="user-details">
-                      <span className="user-name">Apostle Pau</span>
+                      <span className="user-name">Apostle Paul</span>
                       <span className="post-date"> "Now"</span>
                     </div>
                       <div className="listings-details">

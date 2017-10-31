@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var listingsData = [{
-  addres: '20-34 grand ave',
+  address: '20-34 grand ave',
   city: 'Boston',
   state: 'MA',
   rooms: '2',
@@ -20,7 +20,27 @@ var listingsData = [{
   homeType: 'Apartment',
   image: 'http://electrohome.info/wp-content/uploads/2015/10/and-kitchens-designed-for-entertaining-complement-nice-apartment-with-nice-apartment-building-interior-beautiful.jpg'
 }, {
-  addres: '20-34 grand ave',
+  address: '20-34 grand ave',
+  city: 'Boston',
+  state: 'MA',
+  rooms: '2',
+  price: 1000,
+  floorSpace: 2000,
+  extras: ['elevator', 'swimming_pool'],
+  homeType: 'Studios',
+  image: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/8457525/Beverly_Lounge.jpg'
+}, {
+  address: '20-34 grand ave',
+  city: 'Boston',
+  state: 'MA',
+  rooms: '2',
+  price: 1000,
+  floorSpace: 2000,
+  extras: ['elevator', 'swimming_pool'],
+  homeType: 'Studios',
+  image: 'http://www.allaccessboston.com/blog/files/2012/08/Michelle-Apartments-Boston.jpg'
+}, {
+  address: '20-34 grand ave',
   city: 'Somerville',
   state: 'MA',
   rooms: '3',
@@ -30,9 +50,9 @@ var listingsData = [{
   homeType: 'Apartment',
   image: 'http://escobares.com/wp-content/uploads/2017/03/Nice-Decorated-Apartments-For-nifty-Best-Interior-Decorating-Software-Home-Interior-Design-Style.jpg'
 }, {
-  addres: '20-34 grand ave',
+  address: '20-34 grand ave',
   city: 'Medford',
-  state: 'ML',
+  state: 'MA',
   rooms: '3',
   price: 800,
   floorSpace: 2000,
@@ -40,8 +60,8 @@ var listingsData = [{
   homeType: 'Apartment',
   image: 'http://www.loftbelleepoque.se/wp-content/uploads/2012/10/4-slider.jpg'
 }, {
-  addres: '20-34 grand ave',
-  city: 'Boston',
+  address: '20-34 grand ave',
+  city: 'Miami',
   state: 'FL',
   rooms: '3',
   price: 700,
@@ -50,7 +70,7 @@ var listingsData = [{
   homeType: 'Apartment',
   image: 'http://www.nmsapartments.com/wp-content/uploads/2013/06/NMS_Beloit_n1.jpg'
 }, {
-  addres: '20-34 grand ave',
+  address: '20-34 grand ave',
   city: 'California',
   state: 'CA',
   rooms: '3',
@@ -60,7 +80,7 @@ var listingsData = [{
   homeType: 'Apartment',
   image: 'http://electrohome.info/wp-content/uploads/2015/10/and-kitchens-designed-for-entertaining-complement-nice-apartment-with-nice-apartment-building-interior-beautiful.jpg'
 }, {
-  addres: '20-34 grand ave',
+  address: '20-34 grand ave',
   city: 'Seattle',
   state: 'WA',
   rooms: '3',
@@ -69,6 +89,26 @@ var listingsData = [{
   extras: ['elevator', 'gym', 'swimming_pool'],
   homeType: 'Apartment',
   image: 'http://cdn.home-designing.com/wp-content/uploads/2012/12/luxury-modern-apartment.jpg'
+}, {
+  address: '20-34 grand ave',
+  city: 'Seattle',
+  state: 'WA',
+  rooms: '3',
+  price: 500,
+  floorSpace: 5000,
+  extras: ['elevator', 'gym', 'swimming_pool'],
+  homeType: 'Apartment',
+  image: 'http://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_80/4205-24/the-pearl-apartments.jpg'
+}, {
+  address: '20-34 grand ave',
+  city: 'Seattle',
+  state: 'WA',
+  rooms: '3',
+  price: 500,
+  floorSpace: 5000,
+  extras: ['elevator', 'gym', 'swimming_pool'],
+  homeType: 'Studios',
+  image: 'http://www.mandelgroup.com/data/properties/607-Living-2-1.jpg'
 }];
 
 exports.default = listingsData;
@@ -128,10 +168,13 @@ var App = function (_Component) {
     _this.state = {
       name: 'Cephas',
       listingsData: _listingsData2.default,
+      city: 'All',
+      homeType: '0',
+      bedrooms: 1,
       min_price: 0,
       max_price: 1000,
       min_floor_space: 0,
-      max_floor_space: 5000,
+      max_floor_space: 0,
       elavator: false,
       finished_basement: false,
       swimming_pool: false,
@@ -164,6 +207,17 @@ var App = function (_Component) {
       var newData = this.state.listingsData.filter(function (item) {
         return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.floorSpace >= _this3.state.min_floor_space && item.floorSpace >= _this3.state.max_floor_space;
       });
+      if (this.state.city != 'All') {
+        newData = newData.filter(function (item) {
+          return item.city == _this3.state.city;
+        });
+      }
+      if (this.state.homeType != 'All') {
+        newData = newData.filter(function (item) {
+          return item.homeType == _this3.state.homeType;
+        });
+      }
+
       this.setState({
         filteredData: newData
       });
@@ -249,7 +303,17 @@ var Filter = function (_Component) {
           ),
           _react2.default.createElement(
             'select',
-            { name: 'neighbourhood', className: 'filters neighbourhood', onChange: this.props.change },
+            { name: 'city', className: 'filters city', onChange: this.props.change },
+            _react2.default.createElement(
+              'option',
+              { value: 'All' },
+              ' All '
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'Boston' },
+              ' Boston '
+            ),
             _react2.default.createElement(
               'option',
               { value: 'Somerville' },
@@ -257,42 +321,42 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'option',
-              { value: 'Boston' },
-              ' Boston '
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: 'Boston' },
-              ' Boston '
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '\'Medford\'' },
+              { value: 'Medford' },
               ' Medford '
             ),
             _react2.default.createElement(
               'option',
-              { value: '\'California\'' },
-              ' \'California\' '
+              { value: 'Miami' },
+              ' Miami '
             ),
             _react2.default.createElement(
               'option',
-              { value: '\'Seattle\'' },
+              { value: 'California' },
+              ' California '
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'Seattle' },
               ' Seattle '
             )
           ),
           _react2.default.createElement(
             'select',
-            { name: 'housetype', className: 'filters housetype', onChange: this.props.change },
+            { name: 'homeType', className: 'filters homeType', onChange: this.props.change },
             _react2.default.createElement(
               'option',
-              { value: 'Ranch' },
-              ' Ranch '
+              { value: 'All' },
+              ' All Homes '
             ),
             _react2.default.createElement(
               'option',
               { value: 'Apartment' },
               ' Apartment '
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: 'Ranch' },
+              ' Ranch '
             ),
             _react2.default.createElement(
               'option',
@@ -310,23 +374,28 @@ var Filter = function (_Component) {
             { name: 'bedrooms', className: 'filters bedrooms', onChange: this.props.change },
             _react2.default.createElement(
               'option',
+              { value: '0' },
+              ' 0+ BR '
+            ),
+            _react2.default.createElement(
+              'option',
               { value: '1' },
-              ' 1 BR '
+              ' 1+ BR '
             ),
             _react2.default.createElement(
               'option',
               { value: '2' },
-              ' 2 BR '
+              ' 2+ BR '
             ),
             _react2.default.createElement(
               'option',
               { value: '3' },
-              ' 3 BR '
+              ' 3+ BR '
             ),
             _react2.default.createElement(
               'option',
               { value: '4' },
-              ' 5 BR '
+              ' 4+ BR '
             )
           ),
           _react2.default.createElement(
@@ -577,7 +646,7 @@ var Listings = function (_Component) {
                     _react2.default.createElement(
                       'span',
                       { className: 'user-name' },
-                      'Apostle Pau'
+                      'Apostle Paul'
                     ),
                     _react2.default.createElement(
                       'span',
