@@ -1,6 +1,21 @@
 var listingsData = [
   {
     address:'20-34 grand ave',
+    city: 'Seattle',
+    state: 'WA',
+    rooms: '1',
+    price: 500,
+    floorSpace: 5000,
+    extras: [
+      'elevator',
+      'gym',
+      'swimming_pool'
+    ],
+    homeType: 'Studios',
+    image: 'https://www.udr.com/handlers/GetResizedImageHandler.ashx?width=0&height=249&crop=False&imgsrc=%2FuploadedImages%2FUDR3%2FMarket_Areas%2FCommon%2FAshtonBellevue_PlanDA1D_2010_LIV1_EL.jpg'
+  },
+  {
+    address:'20-34 grand ave',
     city: 'Boston',
     state: 'MA',
     rooms: '2',
@@ -143,6 +158,22 @@ var listingsData = [
     homeType: 'Studios',
     image: 'http://www.mandelgroup.com/data/properties/607-Living-2-1.jpg'
   },
+  {
+    address:'20-34 grand ave',
+    city: 'Seattle',
+    state: 'WA',
+    rooms: '3',
+    price: 800,
+    floorSpace: 5000,
+    extras: [
+      'elevator',
+      'gym',
+      'swimming_pool'
+    ],
+    homeType: 'Ranch',
+    image: 'https://i.pinimg.com/736x/63/41/b4/6341b48d6702deaac870966e671a88b2--luxurious-apartment-luxury-modern-apartment.jpg'
+  },
+
 ]
 
 
